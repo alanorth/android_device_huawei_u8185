@@ -25,7 +25,6 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 # LDPI assets
 PRODUCT_LOCALES += ldpi mdpi
 
-PRODUCT_NAME := huawei_u8185
 PRODUCT_DEVICE := u8185
 PRODUCT_MODEL := U8185
 PRODUCT_BRAND := huawei
