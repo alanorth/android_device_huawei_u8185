@@ -37,6 +37,7 @@ BOARD_LDPI_RECOVERY := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8185/recovery/recovery_keys.c
 
 # Kernel
+TARGET_KERNEL_CONFIG := cyanogenmod_u8185_defconfig
 TARGET_PREBUILT_KERNEL := device/huawei/u8185/prebuilt/kernel
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 2048
