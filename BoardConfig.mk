@@ -35,12 +35,21 @@ TARGET_NO_RECOVERY := false
 # Recovery
 BOARD_LDPI_RECOVERY := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8185/recovery/recovery_keys.c
+TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8185/prebuilt/recovery_kernel
 
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogenmod_u8185_defconfig
 TARGET_PREBUILT_KERNEL := device/huawei/u8185/prebuilt/kernel
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 2048
+
+## OpenGL drivers config file path
+#BOARD_EGL_CFG := device/huawei/u8185/config/lib/egl/egl.cfg
+#BOARD_USES_QCOM_HARDWARE := true
+#BOARD_USES_QCOM_LIBRPC := true
+#BOARD_USES_QCOM_LIBS := true
+#TARGET_GRALLOC_USES_ASHMEM := true
+#COMMON_GLOBAL_CFLAGS += -DTARGET_MSM7x27
 
 # /proc/mtd
 #dev:    size   erasesize  name
