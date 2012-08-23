@@ -38,6 +38,7 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8185/recovery/recovery_
 TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8185/prebuilt/recovery_kernel
 
 # Kernel
+TARGET_KERNEL_SOURCE := kernel/huawei/u8185
 TARGET_KERNEL_CONFIG := cyanogenmod_u8185_defconfig
 TARGET_PREBUILT_KERNEL := device/huawei/u8185/prebuilt/kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=u8185
