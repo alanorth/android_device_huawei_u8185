@@ -40,6 +40,7 @@ TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8185/prebuilt/recovery_kernel
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogenmod_u8185_defconfig
 TARGET_PREBUILT_KERNEL := device/huawei/u8185/prebuilt/kernel
+BOARD_KERNEL_CMDLINE := androidboot.hardware=u8185
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 2048
 

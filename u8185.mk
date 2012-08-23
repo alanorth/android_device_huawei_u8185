@@ -15,6 +15,9 @@
 
 PRODUCT_COPY_FILES += device/huawei/u8185/prebuilt/kernel:kernel
 
+# init
+PRODUCT_COPY_FILES += device/huawei/u8185/prebuilt/ueventd.u8185.rc:root/ueventd.u8185.rc
+
 $(call inherit-product-if-exists, vendor/huawei/u8185/u8185_base.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
