@@ -1,1 +1,17 @@
 /dev/accel                      0660    system     system
+
+# gpu driver for adreno200 is globally accessible
+/dev/kgsl-3d0                   0666    root       root
+
+#permissions for audio
+/dev/msm_aac                    0660    system     audio
+/dev/msm_amrnb                  0660    system     audio
+/dev/msm_amrwb                  0660    system     audio
+/dev/msm_amrnb_in               0640    system     audio
+/dev/msm_evrc                   0660    system     audio
+/dev/msm_evrc_in                0660    system     audio
+/dev/msm_fm                     0660    system     audio
+/dev/msm_preproc_ctl            0660    system     audio
+/dev/msm_voicememo              0666    system     audio
+/dev/msm_wma                    0660    system     audio
+/dev/msm_wmapro                 0660    system     audio
