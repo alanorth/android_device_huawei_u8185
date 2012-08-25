@@ -13,8 +13,6 @@
 # limitations under the License.
 #
 
-PRODUCT_COPY_FILES += device/huawei/u8185/prebuilt/kernel:kernel
-
 # init
 PRODUCT_COPY_FILES += device/huawei/u8185/prebuilt/ueventd.u8185.rc:root/ueventd.u8185.rc
 
