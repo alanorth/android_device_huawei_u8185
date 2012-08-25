@@ -48,10 +48,6 @@ BOARD_KERNEL_PAGESIZE := 2048
 ## OpenGL drivers config file path
 BOARD_EGL_CFG := device/huawei/u8185/config/lib/egl/egl.cfg
 #BOARD_USES_QCOM_HARDWARE := true
-#BOARD_USES_QCOM_LIBRPC := true
-#BOARD_USES_QCOM_LIBS := true
-#TARGET_GRALLOC_USES_ASHMEM := true
-#COMMON_GLOBAL_CFLAGS += -DTARGET_MSM7x27
 
 # /proc/mtd
 #dev:    size   erasesize  name
