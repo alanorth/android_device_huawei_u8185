@@ -16,6 +16,23 @@
 # init
 PRODUCT_COPY_FILES += device/huawei/u8185/prebuilt/ueventd.u8185.rc:root/ueventd.u8185.rc
 
+# graphics
+PRODUCT_PACKAGES += \
+    libgenlock \
+    gralloc.msm7x27a \
+    copybit.msm7x27a
+
+# lights
+PRODUCT_PACKAGES += \
+    lights.msm7x27a
+
+# audio
+PRODUCT_PACKAGES += \
+    audio.primary.msm7x27a \
+    audio_policy.msm7x27a \
+    audio.a2dp.default \
+    libaudioutils
+
 $(call inherit-product-if-exists, vendor/huawei/u8185/u8185_base.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
