@@ -14,7 +14,8 @@
 #
 
 # CPU (msm7225a)
-TARGET_BOARD_PLATFORM := msm7k
+TARGET_ARCH := arm
+TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
