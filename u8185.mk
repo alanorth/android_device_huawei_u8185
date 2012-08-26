@@ -33,6 +33,11 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     libaudioutils
 
+# keys
+PRODUCT_COPY_FILES += \
+    device/huawei/u8185/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+    device/huawei/u8185/prebuilt/usr/keylayout/u8185_keypad.kl:system/usr/keylayout/u8185_keypad.kl
+
 $(call inherit-product-if-exists, vendor/huawei/u8185/u8185_base.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
