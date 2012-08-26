@@ -13,6 +13,8 @@
 # limitations under the License.
 #
 
+TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8185/include
+
 # CPU (msm7225a)
 TARGET_ARCH := arm
 TARGET_BOARD_PLATFORM := msm7x27a
