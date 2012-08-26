@@ -5,16 +5,21 @@
 
 #permissions for audio
 /dev/msm_aac                    0660    system     audio
+/dev/msm_aac_in                 0660    system     audio
 /dev/msm_amrnb                  0660    system     audio
 /dev/msm_amrwb                  0660    system     audio
 /dev/msm_amrnb_in               0640    system     audio
 /dev/msm_evrc                   0660    system     audio
 /dev/msm_evrc_in                0660    system     audio
 /dev/msm_fm                     0660    system     audio
+/dev/msm_mvs                    0660    system     audio
 /dev/msm_preproc_ctl            0660    system     audio
 /dev/msm_voicememo              0666    system     audio
 /dev/msm_wma                    0660    system     audio
 /dev/msm_wmapro                 0660    system     audio
+/dev/msm_qcelp                  0660    system     audio
+/dev/msm_qcelp_in               0660    system     audio
+/dev/msm_pmem_audio             0660    system     audio
 
 # the genlock client device node is world writable/readable.
 /dev/genlock                    0666    graphics   graphics
