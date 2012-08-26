@@ -15,3 +15,6 @@
 /dev/msm_voicememo              0666    system     audio
 /dev/msm_wma                    0660    system     audio
 /dev/msm_wmapro                 0660    system     audio
+
+# the genlock client device node is world writable/readable.
+/dev/genlock                    0666    graphics   graphics
