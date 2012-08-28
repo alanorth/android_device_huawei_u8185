@@ -50,6 +50,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 
 ## OpenGL drivers config file path
 BOARD_EGL_CFG := device/huawei/u8185/config/lib/egl/egl.cfg
+USE_OPENGL_RENDERER := true
 BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 
