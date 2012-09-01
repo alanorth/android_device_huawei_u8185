@@ -39,6 +39,7 @@ TARGET_NO_RECOVERY := false
 BOARD_LDPI_RECOVERY := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8185/recovery/recovery_keys.c
 TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8185/prebuilt/recovery_kernel
+BOARD_USE_CUSTOM_RECOVERY_FONT := '"font_7x16.h"'
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/huawei/u8815
