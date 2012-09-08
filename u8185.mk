@@ -38,6 +38,10 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8185/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/huawei/u8185/prebuilt/usr/keylayout/u8185_keypad.kl:system/usr/keylayout/u8185_keypad.kl
 
+# misc
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/etc/media_profiles.xml:system/etc/media_profiles.xml
+
 $(call inherit-product-if-exists, vendor/huawei/u8185/u8185_base.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
