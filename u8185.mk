@@ -38,6 +38,10 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8185/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/huawei/u8185/prebuilt/usr/keylayout/u8185_keypad.kl:system/usr/keylayout/u8185_keypad.kl
 
+# init stuff
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/init.u8185.rc:root/init.u8185.rc
+
 # misc
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/etc/media_profiles.xml:system/etc/media_profiles.xml
