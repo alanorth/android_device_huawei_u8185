@@ -42,7 +42,7 @@ PRODUCT_COPY_FILES += \
 
 # misc
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/etc/media_profiles.xml:system/etc/media_profiles.xml
+    $(LOCAL_PATH)/config/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 $(call inherit-product-if-exists, vendor/huawei/u8185/u8185_base.mk)
 
