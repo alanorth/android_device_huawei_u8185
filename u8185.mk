@@ -14,7 +14,7 @@
 #
 
 # init
-PRODUCT_COPY_FILES += device/huawei/u8185/prebuilt/ueventd.u8185.rc:root/ueventd.u8185.rc
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/ueventd.u8185.rc:root/ueventd.u8185.rc
 
 # graphics
 PRODUCT_PACKAGES += \
@@ -35,8 +35,8 @@ PRODUCT_PACKAGES += \
 
 # keys
 PRODUCT_COPY_FILES += \
-    device/huawei/u8185/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-    device/huawei/u8185/prebuilt/usr/keylayout/u8185_keypad.kl:system/usr/keylayout/u8185_keypad.kl
+    $(LOCAL_PATH)/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+    $(LOCAL_PATH)/prebuilt/usr/keylayout/u8185_keypad.kl:system/usr/keylayout/u8185_keypad.kl
 
 # init stuff
 PRODUCT_COPY_FILES += \
