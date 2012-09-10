@@ -22,7 +22,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libgenlock \
     gralloc.msm7x27a \
-    copybit.msm7x27a
+    copybit.msm7x27a \
+    hwcomposer.msm7x27a
 
 # lights
 PRODUCT_PACKAGES += \
