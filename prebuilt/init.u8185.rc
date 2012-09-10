@@ -145,29 +145,6 @@ on cust
     #mkdir /HWUserData/fileManager/cust
     #chmod 0777 /HWUserData/fileManager/cust
     
-    custsymlinkfile apk_name_need_to_enable.xml /data/cust/apk_name_need_to_enable.xml
-    
-    custsymlink nv /data/cust/nv
-    #custdircopy /cust fileManager /HWUserData
-    #custsymlink fileManager /HWUserData/fileManager/cust
-    #/* < DTS2011100803980 wanghao 20111008 begin */
-    custsymlink wifi /data/cust/wifi
-    #/* DTS2011100803980 wanghao 20111008 end > */
-    custsymlink xml /data/cust/xml
-    custsymlink prop /data/cust/prop
-    custsymlink wallpaper /data/cust/wallpaper
-    custsymlink ons /data/cust/ons
-    custsymlink app /data/cust/app
-    custsymlink lib /data/cust/lib
-    custsymlink media /data/cust/media
-    custsymlink logo /data/cust/logo
-    custsymlink guide /data/cust/guide
-    custsymlink delapp /data/cust/delapp
-#/* < DTS2011082404070 liuyuyan 20110824 begin */
-    custsymlink email /data/cust/email
-#/* DTS2011082404070 liuyuyan 20110824 end >*/
-    
-    
     #/* <DTS_CUST zhudongya 20111031 begin */
     exec /system/bin/load_oemlogo
     #/* DTS_CUST zhudongya 20111031 end> */
@@ -293,10 +270,6 @@ service oem_rpc_svc /system/bin/oem_rpc_svc
 # /* DTS2011092804184 xiewen 20110928 end >*/
 #/* DTS2011120703789 weiheng 20111212 end> */
 
-service dumpstate /system/bin/dumpstate -s
-    socket dumpstate stream 0660 shell log
-    disabled
-    oneshot
 # /*< DTS2011082200995 lihongbin 20110826 begin */
 service rmt_oeminfo /system/bin/rmt_oeminfo
     user root
@@ -352,14 +325,6 @@ service BtWiRfServer /system/xbin/RfTest
     disabled
     oneshot
 #/* DTS2011081800819 zhangyun 20110818 end >*/
-
-# /* < DTS2011092303829  yangyuan 20110923 begin */
-service btld /system/bin/btld
-    user bluetooth system
-    group bluetooth net_bt_admin system
-    disabled 
-# /* DTS2011092303829  yangyuan 20110923 end > */
-
 
 #/*< DTS2011102903110 weizhonghui 20111104 begin */
 service filebackup /system/bin/filebackup
