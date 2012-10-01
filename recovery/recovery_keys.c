@@ -29,14 +29,15 @@ int device_handle_key(int key_code, int visible) {
             case KEY_VOLUMEUP:
                 return HIGHLIGHT_UP;
 
-            case KEY_SEND:
-            case 102:
+            case KEY_HOME:
                 return SELECT_ITEM;
 
-            case KEY_END:
-            case KEY_F4:
-            case KEY_BACK:
-                return GO_BACK;
+            case KEY_POWER:
+                if (ui_get_showing_back_button())
+                    return SELECT_ITEM;
+                if (!get_allow_toggle_display())
+                    return GO_BACK;
+                break;
         }
     }
     

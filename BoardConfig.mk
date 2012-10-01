@@ -13,8 +13,11 @@
 # limitations under the License.
 #
 
+TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8185/include
+
 # CPU (msm7225a)
-TARGET_BOARD_PLATFORM := msm7k
+TARGET_ARCH := arm
+TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -35,11 +38,21 @@ TARGET_NO_RECOVERY := false
 # Recovery
 BOARD_LDPI_RECOVERY := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8185/recovery/recovery_keys.c
+BOARD_USE_CUSTOM_RECOVERY_FONT := '"font_7x16.h"'
 
 # Kernel
+TARGET_KERNEL_SOURCE := kernel/huawei/u8815
+TARGET_KERNEL_CONFIG := cyanogenmod_u8185_defconfig
 TARGET_PREBUILT_KERNEL := device/huawei/u8185/prebuilt/kernel
+BOARD_KERNEL_CMDLINE := androidboot.hardware=u8185
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 2048
+
+## OpenGL drivers config file path
+BOARD_EGL_CFG := device/huawei/u8185/config/lib/egl/egl.cfg
+USE_OPENGL_RENDERER := true
+BOARD_USES_QCOM_HARDWARE := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 
 # /proc/mtd
 #dev:    size   erasesize  name
@@ -63,10 +76,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 #mtd17: 00040000 00020000 "FOTA"
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00500000
-# recovery is actually 0x00500000, but CWM is big, and the build system
-# refuses to build recovery if it's larger than this. The resulting img
-# flashes and works fine, though.
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00600000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00500000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0ba00000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0a500000
 
