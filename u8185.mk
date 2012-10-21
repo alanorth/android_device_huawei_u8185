@@ -45,6 +45,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/etc/media_profiles.xml:system/etc/media_profiles.xml
 
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 $(call inherit-product-if-exists, vendor/huawei/u8185/u8185_base.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
