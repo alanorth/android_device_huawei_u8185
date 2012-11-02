@@ -370,3 +370,7 @@ on property:ro.RescueStarter=1
     start RescueStarter
 #/* DTS2012020201935 genghua 20120202 end >*/
 
+service qmuxd /system/bin/qmuxd
+    class main
+    user radio
+    group radio
