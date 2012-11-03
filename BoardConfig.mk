@@ -39,6 +39,8 @@ TARGET_NO_RECOVERY := false
 BOARD_LDPI_RECOVERY := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8185/recovery/recovery_keys.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := '"font_7x16.h"'
+# force a "go back" menu item
+BOARD_HAS_NO_SELECT_BUTTON := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/huawei/u8815
