@@ -26,6 +26,9 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_CORTEX_CACHE_LINE_32 := true
 
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+
 # Target properties
 TARGET_BOOTLOADER_BOARD_NAME := u8185
 TARGET_OTA_ASSERT_DEVICE := u8185
