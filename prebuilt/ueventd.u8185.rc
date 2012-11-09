@@ -1,3 +1,4 @@
+/dev/accel                0660   system     system
 /dev/null                 0666   root       root
 /dev/zero                 0666   root       root
 /dev/full                 0666   root       root
