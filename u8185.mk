@@ -56,6 +56,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/etc/media_profiles.xml:system/etc/media_profiles.xml
 
+# Huawei RIL implementation
+# From Dazozzo's decompiled stock GB RIL
+FRAMEWORKS_BASE_SUBDIRS += ../../$(LOCAL_PATH)/ril/
+
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 $(call inherit-product-if-exists, vendor/huawei/u8185/u8185_base.mk)
