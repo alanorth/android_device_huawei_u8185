@@ -28,3 +28,4 @@ system/lib/libril-qcril-hook-oem.so
 system/lib/libwms.so
 system/lib/libwmsts.so
 system/lib/libshareril.so
+system/bin/netmgrd
