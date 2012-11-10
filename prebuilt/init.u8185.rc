@@ -374,3 +374,6 @@ service qmuxd /system/bin/qmuxd
     class main
     user radio
     group radio
+
+service netmgrd /system/bin/netmgrd
+    class main
