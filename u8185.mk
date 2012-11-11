@@ -36,6 +36,9 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     libaudioutils
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/config/etc/AudioFilter.csv:system/etc/AudioFilter.csv
+
 # keys
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
