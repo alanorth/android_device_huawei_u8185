@@ -101,7 +101,7 @@
 /dev/smd4                 0660   system     system
 /dev/smd3                 0660   bluetooth      bluetooth
 /dev/smd2                 0660   bluetooth      bluetooth
-/dev/smd0                 0640   radio      radio
+/dev/smd1                 0640   radio      radio
 /dev/smd7                 0640   radio      radio
 #/*< DTS2011113002685 zhaojunmin 20111130 begin */
 /dev/smd17                0600   system     system
