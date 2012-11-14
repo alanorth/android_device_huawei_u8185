@@ -370,3 +370,26 @@ on property:ro.RescueStarter=1
     start RescueStarter
 #/* DTS2012020201935 genghua 20120202 end >*/
 
+service qmuxd /system/bin/qmuxd
+    class main
+    user radio
+    group radio
+
+service netmgrd /system/bin/netmgrd
+    class main
+
+# compcache - handle at boot
+service compcache /system/bin/handle_compcache
+    class main
+    user root
+    group root
+    disabled
+
+on property:persist.service.zram=10
+    start compcache
+
+on property:persist.service.zram=18
+    start compcache
+
+on property:persist.service.zram=26
+    start compcache

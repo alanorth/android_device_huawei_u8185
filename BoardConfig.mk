@@ -24,6 +24,10 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_FPU := neon
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_CORTEX_CACHE_LINE_32 := true
+
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 # Target properties
 TARGET_BOOTLOADER_BOARD_NAME := u8185
@@ -39,11 +43,12 @@ TARGET_NO_RECOVERY := false
 BOARD_LDPI_RECOVERY := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8185/recovery/recovery_keys.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := '"font_7x16.h"'
+# force a "go back" menu item
+BOARD_HAS_NO_SELECT_BUTTON := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/huawei/u8815
 TARGET_KERNEL_CONFIG := cyanogenmod_u8185_defconfig
-TARGET_PREBUILT_KERNEL := device/huawei/u8185/prebuilt/kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=u8185
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -53,6 +58,11 @@ BOARD_EGL_CFG := device/huawei/u8185/config/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+
+# GPS
+BOARD_USES_QCOM_GPS := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8185
 
 # /proc/mtd
 #dev:    size   erasesize  name
