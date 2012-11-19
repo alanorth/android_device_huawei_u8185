@@ -10,3 +10,4 @@ ro.zram.default=18
 
 # Qualcomm
 com.qc.hardware=true
+ro.vendor.extension_library=/system/lib/libqc-opt.so
