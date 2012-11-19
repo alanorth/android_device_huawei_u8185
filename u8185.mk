@@ -38,7 +38,7 @@ PRODUCT_PACKAGES += \
 
 # gps
 PRODUCT_PACKAGES += \
-	gps.u8185
+    gps.u8185
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/etc/AudioFilter.csv:system/etc/AudioFilter.csv
