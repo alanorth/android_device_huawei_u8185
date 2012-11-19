@@ -36,6 +36,10 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     libaudioutils
 
+# gps
+PRODUCT_PACKAGES += \
+	gps.u8185
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/etc/AudioFilter.csv:system/etc/AudioFilter.csv
 
