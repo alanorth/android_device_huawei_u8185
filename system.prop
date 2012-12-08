@@ -11,3 +11,8 @@ ro.zram.default=18
 # Qualcomm
 com.qc.hardware=true
 ro.vendor.extension_library=/system/lib/libqc-opt.so
+
+# Graphics
+debug.sf.hw=1
+debug.composition.type=mdp
+ro.sf.compbypass.enable=0
