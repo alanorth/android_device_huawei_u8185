@@ -63,13 +63,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/etc/media_profiles.xml:system/etc/media_profiles.xml
 
-# dalvik tweaks
-PRODUCT_TAGS += dalvik.gc.type-precise
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=5m \
-    dalvik.vm.heapgrowthlimit=32m \
-    dalvik.vm.heapsize=76m
-
 # Huawei RIL implementation
 # From Dazozzo's decompiled stock GB RIL
 FRAMEWORKS_BASE_SUBDIRS += ../../$(LOCAL_PATH)/ril/
