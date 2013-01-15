@@ -1,11 +1,20 @@
+# Display
 ro.sf.lcd_density=120
 
+# RIL
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd1
 ro.telephony.ril_class=HuaweiQualcommRIL
 ril.subscription.types=NV,RUIM
+ro.telephony.ril.v3=skipsuggestedretrytime
 
 ro.zram.default=18
 
 # Qualcomm
 com.qc.hardware=true
+ro.vendor.extension_library=/system/lib/libqc-opt.so
+
+# Graphics
+debug.sf.hw=1
+debug.composition.type=mdp
+ro.sf.compbypass.enable=0

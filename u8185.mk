@@ -36,6 +36,10 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     libaudioutils
 
+# gps
+PRODUCT_PACKAGES += \
+    gps.u8185
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/etc/AudioFilter.csv:system/etc/AudioFilter.csv
 
@@ -58,13 +62,6 @@ PRODUCT_COPY_FILES += \
 # misc
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/etc/media_profiles.xml:system/etc/media_profiles.xml
-
-# dalvik tweaks
-PRODUCT_TAGS += dalvik.gc.type-precise
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=5m \
-    dalvik.vm.heapgrowthlimit=32m \
-    dalvik.vm.heapsize=76m
 
 # Huawei RIL implementation
 # From Dazozzo's decompiled stock GB RIL
