@@ -21,3 +21,6 @@
 # function: add_lunch_combo generic-eng
 
 add_lunch_combo generic_u8185-eng
+
+# dirty hack to allow us to `lunch cyanogen_u8185-userdebug`
+cp device/huawei/u8185/cyanogen_u8185.mk vendor/cyanogen/products/
