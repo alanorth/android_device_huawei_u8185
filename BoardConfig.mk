@@ -46,6 +46,9 @@ BOARD_LDPI_RECOVERY := true
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 2048
 
+# Graphics
+BOARD_EGL_CFG := device/huawei/u8185/config/lib/egl/egl.cfg
+
 # /proc/mtd
 #dev:    size   erasesize  name
 #mtd0: 00500000 00020000 "boot"
