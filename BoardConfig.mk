@@ -13,6 +13,8 @@
 # limitations under the License.
 #
 
+USE_CAMERA_STUB := true
+
 # CPU (msm7225a)
 TARGET_BOARD_PLATFORM := msm7k
 TARGET_CPU_ABI := armeabi-v7a
