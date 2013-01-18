@@ -13,6 +13,10 @@
 # limitations under the License.
 #
 
+# lights
+PRODUCT_PACKAGES += \
+    lights.msm7k
+
 PRODUCT_COPY_FILES += device/huawei/u8185/prebuilt/kernel:kernel
 
 $(call inherit-product-if-exists, vendor/huawei/u8185/u8185_base.mk)
