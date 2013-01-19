@@ -13,6 +13,11 @@
 # limitations under the License.
 #
 
+# init
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/init.u8185.rc:root/init.u8185.rc \
+    $(LOCAL_PATH)/prebuilt/ueventd.u8185.rc:root/ueventd.u8185.rc
+
 # graphics
 PRODUCT_PACKAGES += \
     gralloc.u8185
