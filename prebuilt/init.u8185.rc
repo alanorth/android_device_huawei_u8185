@@ -193,24 +193,6 @@ chmod 0664 /dev/compass_dev
 chmod 0664 /dev/gyro
 #/* DTS2011082001050  liujinggang 20110822 end > */
 
-service hfag /system/bin/sdptool add --channel=10 HFAG
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-service hsag /system/bin/sdptool add --channel=11 HSAG
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-service opush /system/bin/sdptool add --psm=5255 --channel=12 OPUSH
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-    
 #/* < DTS2011111007245 wanghao 20111110 begin */
 service wlan_detect /system/bin/wlan_detect
     user root
@@ -239,12 +221,6 @@ service iprenew_eth0 /system/bin/dhcpcd -n
 #/* DTS2012030506477 huangpei 20120326 end > */
 #/* DTS2011100803980 wanghao 20111008 end > */
 #/* DTS2011121504967 wanghao 20111215 end > */
-
-service pbap /system/bin/sdptool add --channel=19 PBAP
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
 
 # /*< DTS2011113002685 z00138255 20111130 begin */
 service tcpmsgd /system/bin/tcpmsgd
