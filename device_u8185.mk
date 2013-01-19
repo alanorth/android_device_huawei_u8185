@@ -13,6 +13,10 @@
 # limitations under the License.
 #
 
+# graphics
+PRODUCT_PACKAGES += \
+    gralloc.u8185
+
 # lights
 PRODUCT_PACKAGES += \
     lights.msm7k
