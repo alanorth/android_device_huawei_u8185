@@ -74,6 +74,15 @@ TARGET_QCOM_HDMI_OUT := false
 TARGET_FORCE_CPU_UPLOAD := true
 TARGET_GRALLOC_USES_ASHMEM := true
 
+BOARD_WLAN_DEVICE := ath6kl
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_ath6kl
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/ath6kl.ko"
+WIFI_DRIVER_MODULE_NAME := "ath6kl"
+WIFI_EXT_MODULE_PATH := "/system/lib/modules/cfg80211.ko"
+WIFI_EXT_MODULE_NAME := "cfg80211"
+
 # /proc/mtd
 #dev:    size   erasesize  name
 #mtd0: 00500000 00020000 "boot"

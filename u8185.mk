@@ -63,6 +63,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/etc/media_profiles.xml:system/etc/media_profiles.xml
 
+# wifi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/config/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
 # Huawei RIL implementation
 # From Dazozzo's decompiled stock GB RIL
 FRAMEWORKS_BASE_SUBDIRS += ../../$(LOCAL_PATH)/ril/

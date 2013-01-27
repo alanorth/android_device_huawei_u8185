@@ -220,14 +220,12 @@ service wlan_detect /system/bin/wlan_detect
 
 #/* < DTS2011121504967 wanghao 20111215 begin */
 #/* < DTS2011100803980 wanghao 20111008 begin */
-service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -W -c/data/misc/wifi/wpa_supplicant.conf 
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -ieth0 -W -c/data/misc/wifi/wpa_supplicant.conf
+    class main
+    group wifi inet
+    socket wpa_eth0 dgram 660 wifi wifi
     disabled
     oneshot
-# /* < DTS2012011805648 limeng 20120203 begin */
-service ath_supplicant /system/bin/ath_supplicant -Dar6003 -ieth0 -W -c/data/misc/wifi/wpa_supplicant.conf
-    disabled
-    oneshot
-# /* DTS2012011805648 limeng 20120203 end > */
 #/* < DTS2012030506477 huangpei 20120326 begin */
 service dhcpcd_eth0 /system/bin/dhcpcd -BKL 
     disabled 
