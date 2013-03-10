@@ -23,10 +23,4 @@
     <dimen name="keyboardHeight">30.75mm</dimen>
     <fraction name="minKeyboardHeight">30.0%p</fraction>
     <fraction name="maxKeyboardHeight">43.0%p</fraction>
-
-    <!-- keyboardHeight = row_height*4 + key_bottom_gap*3 -->
-    <dimen name="keyboardHeight_stone">31.30mm</dimen>
-
-    <!-- key_preview_backing_height = more_suggestions_row_height * max_more_suggestions_row -->
-    <dimen name="key_preview_backing_height">102dip</dimen>
 </resources>
