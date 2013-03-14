@@ -45,7 +45,6 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/huawei/u8815
 TARGET_KERNEL_CONFIG := cyanogenmod_u8185_defconfig
-TARGET_PREBUILT_KERNEL := device/huawei/u8185/prebuilt/kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=u8185
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 2048
