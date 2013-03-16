@@ -55,6 +55,9 @@ USE_OPENGL_RENDERER := true
 BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 
+# Video
+COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
+
 # /proc/mtd
 #dev:    size   erasesize  name
 #mtd0: 00500000 00020000 "boot"
