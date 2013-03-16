@@ -14,7 +14,9 @@
 #
 
 # init
-PRODUCT_COPY_FILES += device/huawei/u8185/prebuilt/ueventd.u8185.rc:root/ueventd.u8185.rc
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/init.u8185.rc:root/init.u8185.rc \
+    $(LOCAL_PATH)/prebuilt/ueventd.u8185.rc:root/ueventd.u8185.rc
 
 # graphics
 PRODUCT_PACKAGES += \
