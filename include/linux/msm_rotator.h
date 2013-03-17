@@ -12,10 +12,6 @@
 		_IOW(MSM_ROTATOR_IOCTL_MAGIC, 2, struct msm_rotator_data_info)
 #define MSM_ROTATOR_IOCTL_FINISH   \
 		_IOW(MSM_ROTATOR_IOCTL_MAGIC, 3, int)
-#ifdef CONFIG_HUAWEI_KERNEL
-#define MSM_ROTATOR_IOCTL_MIRROR_FLIP  \
-	      _IOW(MSM_ROTATOR_IOCTL_MAGIC, 4, int)
-#endif
 
 #define ROTATOR_VERSION_01	0xA5B4C301
 
@@ -35,6 +31,7 @@ struct msm_rotator_img_info {
 	unsigned char   rotations;
 	int enable;
 	unsigned int	downscale_ratio;
+	unsigned int secure;
 };
 
 struct msm_rotator_data_info {
@@ -60,6 +57,7 @@ struct msm_rotator_platform_data {
 #ifdef CONFIG_MSM_BUS_SCALING
 	struct msm_bus_scale_pdata *bus_scale_table;
 #endif
+	char rot_iommu_split_domain;
 };
 #endif
 
