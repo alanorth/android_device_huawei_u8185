@@ -76,9 +76,9 @@ $(call inherit-product, build/target/product/full_base_telephony.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-# LDPI assets
-PRODUCT_AAPT_CONFIG := small ldpi
-PRODUCT_AAPT_PREF_CONFIG := mdpi
+# LDPI + MDPI assets
+PRODUCT_AAPT_CONFIG := small ldpi mdpi
+PRODUCT_AAPT_PREF_CONFIG := ldpi
 PRODUCT_LOCALES += ldpi mdpi
 
 PRODUCT_DEVICE := u8185
