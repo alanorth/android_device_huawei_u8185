@@ -1,0 +1,4 @@
+system/wifi/ath6k/AR6003/hw2.1.1/bdata.SD31.bin
+system/wifi/ath6k/AR6003/hw2.1.1/otp.bin
+system/wifi/ath6k/AR6003/hw2.1.1/athwlan.bin
+system/wifi/ath6k/AR6003/hw2.1.1/data.patch.hw3_0.bin
