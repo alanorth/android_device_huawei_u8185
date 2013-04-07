@@ -1,3 +1,6 @@
 ro.sf.lcd_density=120
 
 ro.zram.default=18
+
+# Memory
+persist.sys.purgeable_assets=1
