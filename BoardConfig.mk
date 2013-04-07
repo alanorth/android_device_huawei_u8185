@@ -73,6 +73,9 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8185
 # Qcom stuff
 TARGET_FORCE_CPU_UPLOAD := true
 
+# RIL
+BOARD_RIL_CLASS := ../../../device/huawei/u8185/ril/
+
 # /proc/mtd
 #dev:    size   erasesize  name
 #mtd0: 00500000 00020000 "boot"
