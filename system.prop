@@ -18,3 +18,6 @@ ro.vendor.extension_library=/system/lib/libqc-opt.so
 debug.sf.hw=1
 debug.composition.type=mdp
 ro.sf.compbypass.enable=0
+
+# Memory
+persist.sys.purgeable_assets=1
