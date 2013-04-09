@@ -35,6 +35,9 @@ import com.android.internal.telephony.RILConstants;
 import com.android.internal.telephony.gsm.SmsBroadcastConfigInfo;
 import com.android.internal.telephony.cdma.CdmaInformationRecords;
 
+import com.android.internal.telephony.IccCardApplicationStatus;
+import com.android.internal.telephony.IccCardStatus;
+
 import java.util.ArrayList;
 
 /**
@@ -51,8 +54,15 @@ public class HuaweiQualcommRIL extends QualcommSharedRIL implements CommandsInte
     boolean RILJ_LOGV = true;
     boolean RILJ_LOGD = true;
 
+    private final int RIL_INT_RADIO_OFF = 0;
+    private final int RIL_INT_RADIO_UNAVAILABLE = 1;
+    private final int RIL_INT_RADIO_ON = 2;
+    private final int RIL_INT_RADIO_ON_NG = 10;
+    private final int RIL_INT_RADIO_ON_HTC = 13;
+
     public HuaweiQualcommRIL(Context context, int networkMode, int cdmaSubscription) {
         super(context, networkMode, cdmaSubscription);
+        mQANElements = 4;
     }
 
     @Override
@@ -145,18 +155,57 @@ public class HuaweiQualcommRIL extends QualcommSharedRIL implements CommandsInte
         }
     }
 
+    private void setRadioStateFromRILInt (int stateCode) {
+        CommandsInterface.RadioState radioState;
+        HandlerThread handlerThread;
+        Looper looper;
+        IccHandler iccHandler;
+
+        switch (stateCode) {
+            case RIL_INT_RADIO_OFF:
+                radioState = CommandsInterface.RadioState.RADIO_OFF;
+                if (mIccHandler != null) {
+                    mIccThread = null;
+                    mIccHandler = null;
+                }
+                break;
+            case RIL_INT_RADIO_UNAVAILABLE:
+                radioState = CommandsInterface.RadioState.RADIO_UNAVAILABLE;
+                break;
+            case RIL_INT_RADIO_ON:
+            case RIL_INT_RADIO_ON_NG:
+            case RIL_INT_RADIO_ON_HTC:
+                if (mIccHandler == null) {
+                    handlerThread = new HandlerThread("IccHandler");
+                    mIccThread = handlerThread;
+
+                    mIccThread.start();
+
+                    looper = mIccThread.getLooper();
+                    mIccHandler = new IccHandler(this,looper);
+                    mIccHandler.run();
+                }
+                radioState = CommandsInterface.RadioState.RADIO_ON;
+                break;
+            default:
+                throw new RuntimeException("Unrecognized RIL_RadioState: " + stateCode);
+        }
+
+        setRadioState (radioState);
+    }
+
     @Override
     protected Object
     responseIccCardStatus(Parcel p) {
-        IccCardApplication ca;
+        IccCardApplicationStatus appStatus;
 
-        IccCardStatus status = new IccCardStatus();
-        status.setCardState(p.readInt());
-        status.setUniversalPinState(p.readInt());
-        status.setGsmUmtsSubscriptionAppIndex(p.readInt());
-        status.setCdmaSubscriptionAppIndex(p.readInt());
+        IccCardStatus cardStatus = new IccCardStatus();
+        cardStatus.setCardState(p.readInt());
+        cardStatus.setUniversalPinState(p.readInt());
 
-        status.setImsSubscriptionAppIndex(p.readInt());
+        cardStatus.mGsmUmtsSubscriptionAppIndex = p.readInt();
+        cardStatus.mCdmaSubscriptionAppIndex = p.readInt();
+        cardStatus.mImsSubscriptionAppIndex = p.readInt();
 
         int numApplications = p.readInt();
 
@@ -164,34 +213,34 @@ public class HuaweiQualcommRIL extends QualcommSharedRIL implements CommandsInte
         if (numApplications > IccCardStatus.CARD_MAX_APPS) {
             numApplications = IccCardStatus.CARD_MAX_APPS;
         }
-        status.setNumApplications(numApplications);
+        cardStatus.mApplications = new IccCardApplicationStatus[numApplications];
 
         for (int i = 0; i < numApplications; i++) {
-            ca = new IccCardApplication();
-            ca.app_type = ca.AppTypeFromRILInt(p.readInt());
-            ca.app_state = ca.AppStateFromRILInt(p.readInt());
-            ca.perso_substate = ca.PersoSubstateFromRILInt(p.readInt());
-            ca.aid = p.readString();
-            ca.app_label = p.readString();
-            ca.pin1_replaced = p.readInt();
-            ca.pin1 = ca.PinStateFromRILInt(p.readInt());
-            ca.pin2 = ca.PinStateFromRILInt(p.readInt());
-            status.addApplication(ca);
+            appStatus = new IccCardApplicationStatus();
+            appStatus.app_type = appStatus.AppTypeFromRILInt(p.readInt());
+            appStatus.app_state = appStatus.AppStateFromRILInt(p.readInt());
+            appStatus.perso_substate = appStatus.PersoSubstateFromRILInt(p.readInt());
+            appStatus.aid = p.readString();
+            appStatus.app_label = p.readString();
+            appStatus.pin1_replaced = p.readInt();
+            appStatus.pin1 = appStatus.PinStateFromRILInt(p.readInt());
+            appStatus.pin2 = appStatus.PinStateFromRILInt(p.readInt());
+            cardStatus.mApplications[i] = appStatus;
         }
         int appIndex = -1;
         if (mPhoneType == RILConstants.CDMA_PHONE) {
-            appIndex = status.getCdmaSubscriptionAppIndex();
+            appIndex = cardStatus.mCdmaSubscriptionAppIndex;
             Log.d(LOG_TAG, "This is a CDMA PHONE " + appIndex);
         } else {
-            appIndex = status.getGsmUmtsSubscriptionAppIndex();
+            appIndex = cardStatus.mGsmUmtsSubscriptionAppIndex;
             Log.d(LOG_TAG, "This is a GSM PHONE " + appIndex);
         }
 
         if (numApplications > 0) {
-            IccCardApplication application = status.getApplication(appIndex);
+            IccCardApplicationStatus application = cardStatus.mApplications[appIndex];
             mAid = application.aid;
             mUSIM = application.app_type
-                      == IccCardApplication.AppType.APPTYPE_USIM;
+                      == IccCardApplicationStatus.AppType.APPTYPE_USIM;
             mSetPreferredNetworkType = mPreferredNetworkType;
 
             if (TextUtils.isEmpty(mAid))
@@ -199,33 +248,7 @@ public class HuaweiQualcommRIL extends QualcommSharedRIL implements CommandsInte
             Log.d(LOG_TAG, "mAid " + mAid);
         }
 
-        return status;
-    }
-
-    @Override
-    protected Object
-    responseOperatorInfos(Parcel p) {
-        String strings[] = (String [])responseStrings(p);
-        ArrayList<OperatorInfo> ret;
-
-        if (strings.length % 4 != 0) {
-            throw new RuntimeException(
-                "RIL_REQUEST_QUERY_AVAILABLE_NETWORKS: invalid response. Got "
-                + strings.length + " strings, expected multiple of 4");
-        }
-
-        ret = new ArrayList<OperatorInfo>(strings.length / 4);
-
-        for (int i = 0 ; i < strings.length ; i += 4) {
-            ret.add (
-                new OperatorInfo(
-                    strings[i+0],
-                    strings[i+1],
-                    strings[i+2],
-                    strings[i+3]));
-        }
-
-        return ret;
+        return cardStatus;
     }
 
     @Override
