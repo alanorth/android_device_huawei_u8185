@@ -12,12 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit device configuration
-$(call inherit-product, $(LOCAL_PATH)/u8185.mk)
+# Specify phone tech first
+$(call inherit-product, vendor/cm/config/gsm.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
-$(call inherit-product, vendor/cm/config/gsm.mk)
+$(call inherit-product, $(LOCAL_PATH)/overlay/vendor/cm/config/tiny.mk)
+
+# Inherit device configuration
+$(call inherit-product, $(LOCAL_PATH)/u8185.mk)
 
 # Setup device configuration
 PRODUCT_NAME := cm_u8185
