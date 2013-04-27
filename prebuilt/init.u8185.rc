@@ -107,15 +107,7 @@ on post-fs
     chown wifi wifi /data/misc/wifi/sockets
     mkdir /data/misc/wpa_supplicant 0775
     chown wifi wifi /data/misc/wpa_supplicant
-    
-    mkdir /data/misc/dhcp 0775 system system
-#/* < DTS2012021301035 limeng 20120213 begin */
-    mkdir /data/misc/wifi/load
-    chmod 0775 /data/misc/wifi/load
-    chown system system /data/misc/wifi/load/
-#/* DTS2012021301035 limeng 20120213 end > */
-    mkdir /data/misc/wifi/bin 0775 system system
-#/* DTS2011111007245 wanghao 20111110 end > */
+    mkdir /data/misc/dhcp 0775 dhcp dhcp
 
 #/* DTS2011100803980 wanghao 20111008 end > */
 #/* DTS2011121504967 wanghao 20111215 end > */
