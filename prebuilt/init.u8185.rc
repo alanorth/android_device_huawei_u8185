@@ -193,10 +193,12 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dar6000 -iwlan0 -W -c/data/mi
     oneshot
 #/* < DTS2012030506477 huangpei 20120326 begin */
 service dhcpcd_wlan0 /system/bin/dhcpcd -BKL
+    class main
     disabled 
     oneshot
     
 service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
     disabled 
     oneshot
 #/* DTS2012030506477 huangpei 20120326 end > */
